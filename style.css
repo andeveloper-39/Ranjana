@@ -581,7 +581,7 @@ body {
 
     --border: rgba(255,255,255,0.12);
 
-    --purple: #a78bfa;
+    --purple: #c4b5fd;
     --purple-light: #312e81;
     --purple-dark: #ddd6fe;
   }
@@ -600,7 +600,21 @@ body {
     );
   }
 
+  .hero h1,
   .hero p,
+  .hero-name,
+  .day-pill,
+  .day-pill strong {
+    color: #f9fafb;
+  }
+
+  .hero-name,
+  .letter-from,
+  .modal-from,
+  .hug-label {
+    color: #ddd6fe;
+  }
+
   .footer,
   .letter-sign,
   .m-sub,
@@ -612,16 +626,8 @@ body {
     color: var(--muted);
   }
 
-  .hero-name,
-  .letter-from,
-  .modal-from,
-  .hug-label {
-    color: #c4b5fd;
-  }
-
   .day-pill {
     background: rgba(255,255,255,0.08);
-    color: var(--text);
     border-color: rgba(255,255,255,0.15);
   }
 
@@ -671,23 +677,58 @@ body {
       #3730a3,
       #065f46
     );
-    color: #f9fafb;
+    color: #ffffff;
   }
 
   .close-btn {
     background: #374151;
-    color: #f9fafb;
+    color: #ffffff;
   }
 
   .konami-hint {
     opacity: 0.75;
     color: var(--muted);
   }
+
+  /* ────────────────────────────── */
+  /* MOOD RESPONSE CARD FIX */
+  /* ────────────────────────────── */
+
+  .msg-card {
+    color: #1f2937 !important;
+  }
+
+  .msg-head {
+    font-weight: 700;
+  }
+
+  .msg-body {
+    color: #1f2937 !important;
+  }
+
+  .msg-tip {
+    color: #1f2937 !important;
+    font-weight: 500;
+  }
+
+  /* Make sure dynamically injected content stays dark */
+  .msg-card * {
+    color: inherit;
+  }
 }
 
 /* ── MOBILE TWEAKS ── */
 @media (max-width: 390px) {
-  .hero h1 { font-size: 20px; }
-  .hug-gif { width: 90px; height: 90px; }
-  .stat-n { font-size: 18px; }
+  .hero h1 {
+    font-size: 20px;
+  }
+
+  .hug-gif {
+    width: 90px;
+    height: 90px;
+  }
+
+  .stat-n {
+    font-size: 18px;
+  }
 }
