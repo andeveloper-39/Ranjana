@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Ranjana's Safe Space 🌸</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- ── HERO ── -->
+    <div class="hero">
+      <div class="stars" id="starsContainer"></div>
+      <div class="logo-wrap" id="logoWrap" title="Tap 5 times for a surprise">
+        <span class="logo-icon">🌸</span>
+        <span class="click-badge" id="clickBadge"></span>
+      </div>
+      <div class="hero-name">just for you, Ranjana</div>
+      <h1>Your safe space.<br>Always open.</h1>
+      <p>The CMA journey is long. But you've been carrying it beautifully — even on the days it didn't feel that way.</p>
+      <div class="day-pill">
+        <span class="flame">🔥</span>
+        You've shown up for <strong id="dayNum">—</strong> days straight
+      </div>
+    </div>
+
+    <!-- ── SECRET PAGE — slides down smoothly ── -->
+    <div class="secret-wrap" id="secretWrap">
+      <div class="secret">
+        <div class="secret-stars">✨</div>
+        <h2>You found a little secret.</h2>
+        <p>In case nobody told you today, Ranjana: you are doing better than you think. Far better. The world doesn't know yet what it's about to receive — but it will.</p>
+        <p class="secret-green">Every single page you studied, every late night, every time you kept going when you didn't want to — it's all adding up. Quietly. Powerfully.</p>
+        <button class="secret-close" onclick="closeSecret()">Close this</button>
+      </div>
+    </div>
+
+    <!-- ── VIRTUAL HUG ── -->
+    <div class="hug-section" id="hugSection">
+      <div class="hug-label">virtual hug</div>
+
+      <!-- Idle: click prompt -->
+      <div class="hug-idle" id="hugIdle" onclick="triggerHug()">
+        <div class="hug-click-prompt">
+          <span class="hug-bear-icon">🧸</span>
+          <div class="hug-prompt-text">
+            <strong>Click here for a virtual hug</strong>
+            <span>Tap anytime you need one 💛</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active: gifs + message -->
+      <div class="hug-active" id="hugActive">
+        <div class="hug-gifs">
+          <img class="hug-gif"
+            src="https://media.tenor.com/dCMKGjThoJEAAAAM/teddy-hug.gif"
+            alt="teddy bear hug"
+            onerror="this.src='https://media.giphy.com/media/9RMDOtALoaofK/giphy.gif'">
+          <img class="hug-gif"
+            src="https://media.tenor.com/0mA2fPCT7LUAAAAM/hug-love.gif"
+            alt="hug love"
+            onerror="this.src='https://media.giphy.com/media/f8nZTtBxc20gtczgVe/giphy.gif'">
+          <img class="hug-gif"
+            src="https://media.giphy.com/media/9RMDOtALoaofK/giphy.gif"
+            alt="super simple bear hug">
+        </div>
+        <div class="hug-msg">Sending you the warmest hug right now 🤗</div>
+        <div class="hug-sub">You deserve to feel held, even from far away. 💛</div>
+        <button class="hug-again" onclick="resetHug()">Send another hug 🧸</button>
+      </div>
+    </div>
+
+    <!-- ── MOOD ── -->
+    <p class="stitle">how are you feeling right now?</p>
+    <div class="mood-grid">
+      <button class="mood-btn" onclick="showMood('stressed')">
+        <span class="m-icon">😮‍💨</span>
+        <span class="m-lbl">Stressed</span>
+        <span class="m-sub">Too much at once</span>
+      </button>
+      <button class="mood-btn" onclick="showMood('tired')">
+        <span class="m-icon">🌙</span>
+        <span class="m-lbl">Tired</span>
+        <span class="m-sub">Running on empty</span>
+      </button>
+      <button class="mood-btn" onclick="showMood('confident')">
+        <span class="m-icon">💪</span>
+        <span class="m-lbl">Confident</span>
+        <span class="m-sub">Today feels okay</span>
+      </button>
+      <button class="mood-btn" onclick="showMood('overwhelmed')">
+        <span class="m-icon">🌊</span>
+        <span class="m-lbl">Overwhelmed</span>
+        <span class="m-sub">Can't see the shore</span>
+      </button>
+    </div>
+    <div class="msg-card" id="msgCard"></div>
+
+    <!-- ── PERSONAL MESSAGE ── -->
+    <div class="letter-section">
+      <div class="letter-from">a message for you, Ranjana</div>
+      <div class="letter-text">
+        <p>You have poured everything into this — your time, your focus, your energy, your heart. Every late night, every topic you revisited, every moment you chose to study even when it was hard — none of that was wasted. Not a single bit of it.</p>
+        <p>You have done your part beautifully, with real hard work and real effort. So please don't worry. Don't let doubt speak louder than your dedication. Everything is going to go exactly according to your plan — because you built that plan with everything you had.</p>
+        <p>Believe that positive things are already on their way to you. Not because it's just a nice thing to say, but because you've earned them. The universe has been watching you show up, day after day, and it's been keeping score.</p>
+        <p>You are more ready than you feel. And I am so incredibly proud of you. 💛</p>
+      </div>
+      <div class="letter-sign">— someone rooting for you, always 🌸</div>
+    </div>
+
+    <!-- ── PROGRESS ── -->
+    <div class="prog-card">
+      <div class="prog-row">
+        <span class="prog-lbl">your CMA journey</span>
+        <span class="prog-pct" id="pctLabel">—</span>
+      </div>
+      <div class="prog-track">
+        <div class="prog-fill" id="progFill" style="width:0%"></div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <span class="stat-n" id="sDays">—</span>
+          <span class="stat-l">days you showed up</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-n" id="sWeeks">—</span>
+          <span class="stat-l">weeks of hard work</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-n" id="sLeft">—</span>
+          <span class="stat-l">days to shine</span>
+        </div>
+      </div>
+      <div class="exam-cd" id="examCd"></div>
+    </div>
+
+    <!-- ── PANIC BUTTON ── -->
+    <button class="panic-btn" onclick="document.getElementById('panicOverlay').classList.add('open')">
+      🫂 Open when everything feels like too much
+    </button>
+
+    <!-- ── FOOTER ── -->
+    <div class="footer">
+      <strong>You don't need to be perfect today.</strong><br>
+      You only need to keep going, Ranjana. 🌸
+      <div class="konami-hint">psst — tap the flower 5 times for a little secret ↑</div>
+    </div>
+
+  </div><!-- end #app -->
+
+  <!-- ── PANIC OVERLAY ── -->
+  <div class="overlay" id="panicOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <button class="close-btn" onclick="document.getElementById('panicOverlay').classList.remove('open')">✕</button>
+      <div class="modal-hug-icon">🫂</div>
+      <h2>Hey Ranjana. Breathe.</h2>
+      <p class="msub">It's okay that you opened this. That took courage too. Here's everything you need to remember right now.</p>
+
+      <p class="stitle" style="margin-bottom:10px">why you started this</p>
+      <div class="r-item">⭐ Because you want a career that is truly, completely yours — earned by you alone.</div>
+      <div class="r-item">⭐ Because you have something to prove to yourself, and you already know you can do it.</div>
+      <div class="r-item">⭐ Because the future CMA version of you is already proud of who you are today.</div>
+      <div class="r-item">⭐ Because you have survived 100% of your hardest days. Every. Single. One.</div>
+      <div class="r-item">⭐ Because you've already put in the work. You've already done your part.</div>
+
+      <div class="modal-letter">
+        <div class="modal-from">from someone who believes in you</div>
+        <p>Ranjana, you've put in the effort. You've shown up when it was easy, and more importantly — when it wasn't. Everything is going to go according to your plan. Positive things are already on their way to you. You just need to hold on a little longer. Take three slow breaths. Then close this and take one small step. That's all. 💛</p>
+      </div>
+
+      <div class="breathe-box">
+        Breathe in for 4 → hold for 4 → breathe out for 6.<br>
+        You are safe. You are capable. You are almost there.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FLOATING HEARTS CONTAINER ── -->
+  <div id="heartsContainer"></div>
+
+  <!-- ── TOAST ── -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
