@@ -571,26 +571,118 @@ body {
 
 /* ── DARK MODE ── */
 @media (prefers-color-scheme: dark) {
+
   :root {
-    --bg: #0f0e0d;
-    --card: #1c1917;
-    --text: #fafaf9;
-    --muted: #a8a29e;
-    --border: rgba(255,255,255,0.08);
+    --bg: #111827;
+    --card: #1f2937;
+
+    --text: #f9fafb;
+    --muted: #d1d5db;
+
+    --border: rgba(255,255,255,0.12);
+
+    --purple: #a78bfa;
+    --purple-light: #312e81;
+    --purple-dark: #ddd6fe;
   }
-  .hero { background: linear-gradient(160deg, #1a0d2e 0%, #0d2420 55%, #2a1f00 100%); }
-  .hug-section { background: linear-gradient(135deg, #1a0d2e, #0d2018); }
-  .hug-click-prompt { background: rgba(255,255,255,0.06); }
-  .hug-click-prompt:hover { background: rgba(255,255,255,0.12); }
-  .letter-section { background: linear-gradient(135deg, #1a0d2e, #1c1700); border-color: rgba(124,58,237,0.3); }
-  .modal { background: #1c1917; }
-  .modal-letter { background: linear-gradient(135deg, #1a0d2e, #1c1700); }
-  .stat-box { background: #28251f; }
-  .prog-track { background: #28251f; }
-  .r-item { background: #28251f; }
-  .breathe-box { background: #28251f; }
-  .day-pill { background: rgba(255,255,255,0.07); }
-  .hug-gif { background: #28251f; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .hero {
+    background: linear-gradient(
+      160deg,
+      #2e1065 0%,
+      #064e3b 55%,
+      #78350f 100%
+    );
+  }
+
+  .hero p,
+  .footer,
+  .letter-sign,
+  .m-sub,
+  .hug-sub,
+  .prog-lbl,
+  .stat-l,
+  .msub,
+  .breathe-box {
+    color: var(--muted);
+  }
+
+  .hero-name,
+  .letter-from,
+  .modal-from,
+  .hug-label {
+    color: #c4b5fd;
+  }
+
+  .day-pill {
+    background: rgba(255,255,255,0.08);
+    color: var(--text);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .letter-section,
+  .modal-letter {
+    background: linear-gradient(
+      135deg,
+      #312e81,
+      #3f3f46
+    );
+  }
+
+  .mood-btn,
+  .prog-card,
+  .stat-box,
+  .r-item,
+  .breathe-box,
+  .modal {
+    background: var(--card);
+    border-color: var(--border);
+  }
+
+  .hug-section {
+    background: linear-gradient(
+      135deg,
+      #312e81,
+      #14532d
+    );
+  }
+
+  .hug-click-prompt {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  .hug-click-prompt:hover {
+    background: rgba(255,255,255,0.14);
+  }
+
+  .prog-track {
+    background: #374151;
+  }
+
+  .exam-cd {
+    background: linear-gradient(
+      135deg,
+      #3730a3,
+      #065f46
+    );
+    color: #f9fafb;
+  }
+
+  .close-btn {
+    background: #374151;
+    color: #f9fafb;
+  }
+
+  .konami-hint {
+    opacity: 0.75;
+    color: var(--muted);
+  }
 }
 
 /* ── MOBILE TWEAKS ── */
